@@ -1,0 +1,4 @@
+language: csharp
+solution: Creatidea.Library.Uploads.sln
+install:
+- nuget restore Creatidea.Library.Uploads.sln
