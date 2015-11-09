@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Creatidea.Library.Uploads.Nuget</id>
-        <version>1.0.0</version>
+        <version>1.0.0-alpha</version>
         <title>Creatidea.Library.Uploads.Nuget</title>
         <authors>Money</authors>
         <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -21,8 +21,6 @@
         </dependencies>
     </metadata>
     <files>
-        <file src="content\_._" target="content\_._" />
-        <file src="lib\_._" target="lib\_._" />
         <file src="tools\init.ps1" target="tools\init.ps1" />
         <file src="tools\install.ps1" target="tools\install.ps1" />
         <file src="tools\uninstall.ps1" target="tools\uninstall.ps1" />
