@@ -13,6 +13,8 @@ namespace Creatidea.Library.Uploads.Service
     using Creatidea.Library.Results;
     using Creatidea.Library.Uploads.Models;
 
+    using MimeTypeMap.List;
+
     public class CiFile
     {
         private string RootPath { get; set; }
@@ -39,14 +41,12 @@ namespace Creatidea.Library.Uploads.Service
         /// 檔案上傳
         /// </summary>
         /// <param name="file">上傳之檔案</param>
-        /// <param name="fileType">檔案類別</param>
         /// <param name="folderName">欲存放資料夾名稱</param>
         /// <returns>CiResult FileUploadViewModel </returns>
         public CiResult<CiWebFileResult> Upload(HttpPostedFileBase file, string folderName = "Temps")
         {
             var result = new CiResult<CiWebFileResult>() { Message = "上傳檔案發生錯誤！" };
 
-            // todo 檢查是否真的有檔案
             if (file == null || file.ContentLength <= 0)
             {
                 result.Message += "檔案為空或是沒有任何檔案長度！";
@@ -94,10 +94,11 @@ namespace Creatidea.Library.Uploads.Service
         /// 檢查檔案副檔名是否符合
         /// </summary>
         /// <param name="extension">檔案之副檔名</param>
+        /// <param name="mime">The MIME.</param>
         /// <param name="checkExtensionList">The need to be check extension's list.</param>
         /// <param name="checkMime">if set to <c>true</c> [check MIME].</param>
         /// <returns>bool</returns>
-        public bool CheckExtension(string extension, List<string> checkExtensionList, bool checkMime = true)
+        public bool CheckExtension(string extension, string mime, List<string> checkExtensionList, bool checkMime = true)
         {
             if (!checkExtensionList.Contains(extension))
             {
@@ -106,9 +107,14 @@ namespace Creatidea.Library.Uploads.Service
 
             if (checkMime)
             {
+                foreach (string ext in checkExtensionList)
+                {
+                    if (MimeTypeMap.GetMimeType(ext).Contains(mime))
+                        return true;
+                }
 
+                return false;
             }
-
 
             return true;
         }
