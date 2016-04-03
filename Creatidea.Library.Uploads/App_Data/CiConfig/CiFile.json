@@ -1,0 +1,7 @@
+﻿{
+    "CiConfig": {
+        "Version": "1.0.0",
+        "StorageType": [ "Local" ],
+        "RootPath": "~/Uploads/"
+    }
+}

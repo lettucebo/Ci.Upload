@@ -30,12 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Imgur.API, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Imgur.API.3.0.1\lib\portable-net45+win+wpa81+MonoAndroid10+xamarinios10+MonoTouch10\Imgur.API.dll</HintPath>
+    <Reference Include="Creatidea.Library.Configs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Dropbox\Job\創鈺國際\0099_大專體總_報名系統_20160325\程式\Signup\packages\Creatidea.Library.Configs.1.0.4\lib\Creatidea.Library.Configs.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Creatidea.Library.Results, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Dropbox\Job\創鈺國際\0099_大專體總_報名系統_20160325\程式\Signup\packages\Creatidea.Library.Results.1.0.0\lib\Creatidea.Library.Results.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=8.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Dropbox\Job\創鈺國際\0099_大專體總_報名系統_20160325\程式\Signup\packages\Newtonsoft.Json.8.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -49,17 +53,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Imgur\CiImgur.cs" />
-    <Compile Include="Imgur\CiImgurHelper.cs" />
+    <Compile Include="Enums\FileExt.cs" />
+    <Compile Include="Enums\StorageType.cs" />
+    <Compile Include="Interface\ICiFileResult.cs" />
+    <Compile Include="Models\CiWebFileResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\CiFile.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App_Data\CiConfig\CiFile.json" />
+    <None Include="App_Data\CiConfig\CiConfig.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Azure\" />
     <Folder Include="File\" />
-    <Folder Include="S3\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
