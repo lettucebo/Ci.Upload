@@ -8,7 +8,7 @@ namespace Creatidea.Library.Uploads.Interface
 {
     using Creatidea.Library.Uploads.Enums;
 
-    interface ICiFileResult
+    interface ICiFile
     {
         /// <summary>
         /// Gets or sets the type of the storage.
@@ -32,8 +32,18 @@ namespace Creatidea.Library.Uploads.Interface
         string Extension { get; set; }
 
         /// <summary>
-        /// 完整檔案存放路徑(D:/AAA/BBB/CCC.ddd)
+        /// 完整檔案存放路徑(D:/AAA/BBB/CCC.ddd) or (http://imgur.com/xxx.png)
         /// </summary>
         string FullPath { get; set; }
+
+        /// <summary>
+        /// 從根目錄的相對檔案存放資料夾位置(~/AAA/BBB/xxx.yy)
+        /// </summary>
+        string VirtualPath { get; set; }
+
+        /// <summary>
+        /// 欲放置資料夾(AAA/BBB/...)
+        /// </summary>
+        string Folder { get; set; }
     }
 }

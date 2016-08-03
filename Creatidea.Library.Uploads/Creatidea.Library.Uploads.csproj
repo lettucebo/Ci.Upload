@@ -34,10 +34,6 @@
       <HintPath>..\..\..\..\Dropbox\Job\創鈺國際\0099_大專體總_報名系統_20160325\程式\Signup\packages\Creatidea.Library.Configs.1.0.4\lib\Creatidea.Library.Configs.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Creatidea.Library.Results, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\Dropbox\Job\創鈺國際\0099_大專體總_報名系統_20160325\程式\Signup\packages\Creatidea.Library.Results.1.0.0\lib\Creatidea.Library.Results.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="MimeTypeMap.List, Version=2.3.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\Dropbox\Job\創鈺國際\0099_大專體總_報名系統_20160325\程式\Signup\packages\MimeTypeMap.List.1.0.0\lib\MimeTypeMap.List.dll</HintPath>
       <Private>True</Private>
@@ -48,6 +44,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -57,16 +54,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\FileExt.cs" />
+    <Compile Include="Enums\FileExtensions.cs" />
     <Compile Include="Enums\StorageType.cs" />
-    <Compile Include="Interface\ICiFileResult.cs" />
-    <Compile Include="Models\CiWebFileResult.cs" />
+    <Compile Include="Extensions\HttpPostedFileBaseExtensions.cs" />
+    <Compile Include="Interface\ICiFile.cs" />
+    <Compile Include="Models\CiFile.cs" />
+    <Compile Include="Models\CiImageFile.cs" />
+    <Compile Include="Models\CiWebFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\CiFile.cs" />
+    <Compile Include="Service\CiFileService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App_Data\CiConfig\CiFile.json" />
     <None Include="App_Data\CiConfig\CiConfig.json" />
+    <None Include="App_Data\CiConfig\CiFile.json" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
