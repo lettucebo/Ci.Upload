@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Ci.Uploads</id>
-        <version>2.1.0</version>
+        <version>2.1.1</version>
         <title>Ci.Uploads</title>
         <authors>Money</authors>
         <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
