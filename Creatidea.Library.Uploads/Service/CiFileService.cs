@@ -29,6 +29,19 @@ namespace Creatidea.Library.Uploads.Service
         /// <value>The root path.</value>
         public static string RootPath { get; set; }
 
+        static CiFileService()
+        {
+            if (CiConfig.Global.CiFile.RootPath != null
+                && !string.IsNullOrWhiteSpace(CiConfig.Global.CiFile.RootPath.ToString()))
+            {
+                RootPath = CiConfig.Global.CiFile.RootPath.ToString();
+            }
+            else
+            {
+                RootPath = "";
+            }
+        }
+
         public CiFileService()
         {
             if (CiConfig.Global.CiFile.RootPath != null
@@ -38,7 +51,7 @@ namespace Creatidea.Library.Uploads.Service
             }
             else
             {
-                RootPath = string.Empty;
+                RootPath = "";
             }
         }
 

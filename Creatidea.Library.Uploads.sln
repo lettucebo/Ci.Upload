@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creatidea.Library.Uploads", "Creatidea.Library.Uploads\Creatidea.Library.Uploads.csproj", "{F842A9D0-5B7F-497B-98B8-F0F46D5E147B}"
 EndProject
@@ -12,6 +12,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creatidea.Library.Uploads.Nuget", "Creatidea.Library.Uploads.Nuget\Creatidea.Library.Uploads.Nuget.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Creatidea.Library.Example", "Creatidea.Library.Example\Creatidea.Library.Example.csproj", "{D1651587-9C09-445C-80F4-3980401B3412}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0451BAEF-DF2E-4B98-8644-94EE9415E389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1651587-9C09-445C-80F4-3980401B3412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1651587-9C09-445C-80F4-3980401B3412}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1651587-9C09-445C-80F4-3980401B3412}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1651587-9C09-445C-80F4-3980401B3412}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
