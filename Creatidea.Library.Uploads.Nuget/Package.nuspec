@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Ci.Uploads</id>
-        <version>2.0.0</version>
+        <version>2.1.0</version>
         <title>Ci.Uploads</title>
         <authors>Money</authors>
         <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
@@ -15,6 +15,7 @@
         <language>zh-TW</language>
         <dependencies>
             <group targetFramework=".NETFramework4.5">
+                <dependency id="Ci.Extensions" version="1.0.0" />
                 <dependency id="Creatidea.Library.Configs" version="1.0.4" />
                 <dependency id="MimeTypeMap.List" version="1.0.0" />
                 <dependency id="Newtonsoft.Json" version="8.0.2" />

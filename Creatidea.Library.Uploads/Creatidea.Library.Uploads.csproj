@@ -30,6 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ci.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ci.Extensions.1.0.0\lib\Ci.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Creatidea.Library.Configs, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\..\..\..\Dropbox\Job\創鈺國際\0099_大專體總_報名系統_20160325\程式\Signup\packages\Creatidea.Library.Configs.1.0.4\lib\Creatidea.Library.Configs.dll</HintPath>
       <Private>True</Private>
@@ -57,6 +61,7 @@
     <Compile Include="Enums\FileExtensions.cs" />
     <Compile Include="Enums\StorageType.cs" />
     <Compile Include="Extensions\HttpPostedFileBaseExtensions.cs" />
+    <Compile Include="Extensions\ImageExtensions.cs" />
     <Compile Include="Interface\ICiFile.cs" />
     <Compile Include="Models\CiFile.cs" />
     <Compile Include="Models\CiImageFile.cs" />
