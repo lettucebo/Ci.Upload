@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Creatidea.Library.Uploads.Enums
+﻿namespace Ci.Uploads.Enums
 {
+    using System.Collections.Generic;
+
     public class FileExtensions
     {
         /// <summary>

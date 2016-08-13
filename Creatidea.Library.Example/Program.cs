@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Creatidea.Library.Example
 {
-    using Creatidea.Library.Uploads.Service;
+    using Ci.Uploads.Service;
 
     class Program
     {

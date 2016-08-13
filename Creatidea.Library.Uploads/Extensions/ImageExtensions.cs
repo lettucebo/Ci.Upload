@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Creatidea.Library.Uploads.Extensions
+﻿namespace Ci.Uploads.Extensions
 {
     using System.Drawing;
     using System.Drawing.Imaging;
 
-    using Creatidea.Library.Uploads.Models;
-    using Creatidea.Library.Uploads.Service;
+    using Ci.Uploads.Models;
+    using Ci.Uploads.Service;
 
     public static class ImageExtensions
     {

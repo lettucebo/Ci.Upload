@@ -7,8 +7,8 @@
     <ProjectGuid>{F842A9D0-5B7F-497B-98B8-F0F46D5E147B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Creatidea.Library.Uploads</RootNamespace>
-    <AssemblyName>Creatidea.Library.Uploads</AssemblyName>
+    <RootNamespace>Ci.Uploads</RootNamespace>
+    <AssemblyName>Ci.Uploads</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

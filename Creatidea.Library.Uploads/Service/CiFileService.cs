@@ -1,20 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Creatidea.Library.Uploads.Service
+﻿namespace Ci.Uploads.Service
 {
+    using System;
+    using System.Collections.Generic;
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
     using System.Web;
 
     using Ci.Extensions;
+    using Ci.Uploads.Models;
 
     using Creatidea.Library.Configs;
-    using Creatidea.Library.Uploads.Models;
 
     using MimeTypeMap.List;
 

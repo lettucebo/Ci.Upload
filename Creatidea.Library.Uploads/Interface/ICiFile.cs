@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Creatidea.Library.Uploads.Interface
+﻿namespace Ci.Uploads.Interface
 {
-    using Creatidea.Library.Uploads.Enums;
+    using Ci.Uploads.Enums;
 
     interface ICiFile
     {
