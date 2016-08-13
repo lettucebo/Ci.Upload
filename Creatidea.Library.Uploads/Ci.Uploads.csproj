@@ -28,6 +28,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\Ci.Uploads.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Ci.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
