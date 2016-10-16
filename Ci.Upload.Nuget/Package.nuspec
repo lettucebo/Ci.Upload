@@ -2,17 +2,18 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
         <id>Ci.Upload</id>
-        <version>2.2.0</version>
+        <version>2.3.0</version>
         <title>Ci.Upload</title>
         <authors>Money</authors>
         <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
-        <projectUrl>https://github.com/creatidea-tw/Creatidea.Library.Uploads</projectUrl>
-        <iconUrl>http://i.imgur.com/2H44Wnd.png</iconUrl>
+        <projectUrl>https://github.com/lettucebo/Ci.Upload</projectUrl>
+        <iconUrl>http://i.imgur.com/3xZ4Cdx.png</iconUrl>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <description>檔案上傳輔助</description>
         <summary>創鈺共用類別庫系列</summary>
         <copyright>Copyright  2016</copyright>
         <language>zh-TW</language>
+        <tags>file,upload</tags>
         <dependencies>
             <group targetFramework=".NETFramework4.5">
                 <dependency id="Ci.Extensions" version="1.0.0" />
@@ -27,6 +28,7 @@
     </metadata>
     <files>
         <file src="content\App_Data\CiConfig\CiFile.json" target="content\App_Data\CiConfig\CiFile.json" />
-        <file src="lib\Creatidea.Library.Uploads.dll" target="lib\Creatidea.Library.Uploads.dll" />
+        <file src="lib\Ci.Upload.dll" target="lib\Ci.Upload.dll" />
+        <file src="lib\Ci.Upload.xml" target="lib\Ci.Upload.xml" />
     </files>
 </package>

@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Ci.Upload</name>
+    </assembly>
+    <members>
+        <member name="P:Ci.Uploads.Enums.FileExtensions.WebImage">
+            <summary>
+            網路圖片支援列表
+            </summary>
+            <value>The image.</value>
+        </member>
+        <member name="P:Ci.Uploads.Interface.ICiFile.StorageType">
+            <summary>
+            Gets or sets the type of the storage.
+            </summary>
+            <value>The type of the storage.</value>
+        </member>
+        <member name="P:Ci.Uploads.Interface.ICiFile.OriName">
+            <summary>
+            原檔名(不含副檔名)
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Interface.ICiFile.NewName">
+            <summary>
+            更改後的檔名(不含副檔名)
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Interface.ICiFile.Extension">
+            <summary>
+            副檔名(.XXX)
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Interface.ICiFile.FullPath">
+            <summary>
+            完整檔案存放路徑(D:/AAA/BBB/CCC.ddd) or (http://imgur.com/xxx.png)
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Interface.ICiFile.VirtualPath">
+            <summary>
+            從根目錄的相對檔案存放資料夾位置(~/AAA/BBB/xxx.yy)
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Interface.ICiFile.Folder">
+            <summary>
+            欲放置資料夾(AAA/BBB/...)
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Models.CiFile.StorageType">
+            <summary>
+            Gets or sets the type of the storage.
+            </summary>
+            <value>The type of the storage.</value>
+        </member>
+        <member name="P:Ci.Uploads.Models.CiFile.OriName">
+            <summary>
+            原檔名(不含副檔名)
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Models.CiFile.NewName">
+            <summary>
+            更改後的檔名(不含副檔名)
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Models.CiFile.Extension">
+            <summary>
+            副檔名(.XXX)
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Models.CiFile.FullPath">
+            <summary>
+            完整檔案存放路徑(D:/AAA/BBB/CCC.ddd) 
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Models.CiFile.VirtualPath">
+            <summary>
+            從根目錄的相對檔案存放資料夾位置(~/AAA/BBB/xxx.yy)
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Models.CiFile.Folder">
+            <summary>
+            欲放置資料夾(AAA/BBB/...)
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Models.CiWebFile.Url">
+            <summary>
+            檔案網址 (http://imgur.com/xxx.png)
+            </summary>
+        </member>
+        <member name="T:Ci.Uploads.Service.CiFileService">
+            <summary>
+            CiFileService.
+            </summary>
+        </member>
+        <member name="P:Ci.Uploads.Service.CiFileService.RootPath">
+            <summary>
+            檔案儲存之 root path.
+            </summary>
+            <value>The root path.</value>
+        </member>
+        <member name="M:Ci.Uploads.Service.CiFileService.SaveLocal(System.Web.HttpPostedFileBase,System.String,System.String)">
+            <summary>
+            檔案上傳儲存於本地端
+            </summary>
+            <param name="file">上傳之檔案</param>
+            <param name="folder">欲存放資料夾名稱</param>
+            <returns>T.</returns>
+            <exception cref="T:System.NullReferenceException">檔案為空或是沒有任何檔案長度</exception>
+        </member>
+        <member name="M:Ci.Uploads.Service.CiFileService.SaveLocal(System.Drawing.Image,System.Drawing.Imaging.ImageFormat,System.String,System.String)">
+            <summary>
+            圖片儲存
+            </summary>
+            <param name="image">The image.</param>
+            <param name="imageFormat">The image format.</param>
+            <param name="folder">欲存放資料夾名稱</param>
+            <returns>CiResult FileUploadViewModel</returns>
+        </member>
+        <member name="M:Ci.Uploads.Service.CiFileService.IsNullOrEmpty(System.Web.HttpPostedFileBase)">
+            <summary>
+            Determines whether [is null or empty] [the specified file].
+            </summary>
+            <param name="file">The file.</param>
+            <returns><c>true</c> if [is null or empty] [the specified file]; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Ci.Uploads.Service.CiFileService.GetNewFileName">
+            <summary>
+            取得新的檔案名稱
+            </summary>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Ci.Uploads.Service.CiFileService.CheckExtension(System.String,System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+            <summary>
+            檢查檔案副檔名是否符合
+            </summary>
+            <param name="extension">檔案之副檔名</param>
+            <param name="mime">The MIME.</param>
+            <param name="checkExtensionList">The need to be check extension's list.</param>
+            <param name="checkMime">if set to <c>true</c> [check MIME].</param>
+            <returns>bool</returns>
+        </member>
+    </members>
+</doc>

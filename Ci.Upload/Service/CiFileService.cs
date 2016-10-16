@@ -38,19 +38,6 @@
             }
         }
 
-        public CiFileService()
-        {
-            if (CiConfig.Global.CiFile.RootPath != null
-                && !string.IsNullOrWhiteSpace(CiConfig.Global.CiFile.RootPath.ToString()))
-            {
-                RootPath = CiConfig.Global.CiFile.RootPath.ToString();
-            }
-            else
-            {
-                RootPath = "";
-            }
-        }
-
         public CiFileService(string rootPath)
         {
             RootPath = rootPath;
@@ -63,7 +50,7 @@
         /// <param name="folder">欲存放資料夾名稱</param>
         /// <returns>T.</returns>
         /// <exception cref="System.NullReferenceException">檔案為空或是沒有任何檔案長度</exception>
-        protected internal static CiFile SaveLocal(HttpPostedFileBase file, string folder = "Temps")
+        protected internal static CiFile SaveLocal(HttpPostedFileBase file, string folder = "Temps", string fileName = "")
         {
             if (IsNullOrEmpty(file))
             {
@@ -71,11 +58,15 @@
             }
 
             var ext = Path.GetExtension(file.FileName);
+            if (string.IsNullOrWhiteSpace(fileName))
+            {
+                fileName = GetNewFileName();
+            }
 
             CiFile model = new CiFile
             {
                 Extension = ext,
-                NewName = GetNewFileName(),
+                NewName = fileName,
                 OriName = Path.GetFileNameWithoutExtension(file.FileName),
                 Folder = folder,
                 VirtualPath = Path.Combine(RootPath, folder)
@@ -112,17 +103,22 @@
         /// <param name="imageFormat">The image format.</param>
         /// <param name="folder">欲存放資料夾名稱</param>
         /// <returns>CiResult FileUploadViewModel</returns>
-        protected internal static CiImageFile SaveLocal(Image image, ImageFormat imageFormat, string folder = "Temps")
+        protected internal static CiImageFile SaveLocal(Image image, ImageFormat imageFormat, string folder = "Temps", string fileName = "")
         {
             if (image == null)
             {
                 throw new NullReferenceException("圖片為空！");
             }
 
+            if (string.IsNullOrWhiteSpace(fileName))
+            {
+                fileName = GetNewFileName();
+            }
+
             CiImageFile model = new CiImageFile()
             {
                 Extension = imageFormat.ToFileExtension(),
-                NewName = GetNewFileName(),
+                NewName = fileName,
                 Folder = folder,
                 VirtualPath = Path.Combine(RootPath, folder),
                 Format = imageFormat

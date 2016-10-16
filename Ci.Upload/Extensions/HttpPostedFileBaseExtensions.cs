@@ -7,9 +7,9 @@
 
     public static class HttpPostedFileBaseExtensions
     {
-        public static CiFile SaveAsLocal(this HttpPostedFileBase file, string folder = "Temps")
+        public static CiFile SaveAsLocal(this HttpPostedFileBase file, string folder = "Temps", string fileName = "")
         {
-            return CiFileService.SaveLocal(file, folder);
+            return CiFileService.SaveLocal(file, folder, fileName);
         }
     }
 }
