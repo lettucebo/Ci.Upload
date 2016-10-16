@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ci.Uploads", "Creatidea.Library.Uploads\Ci.Uploads.csproj", "{F842A9D0-5B7F-497B-98B8-F0F46D5E147B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ci.Upload", "Ci.Upload\Ci.Upload.csproj", "{F842A9D0-5B7F-497B-98B8-F0F46D5E147B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{15B80EE7-C5BC-430D-AD2B-4CEED124FCF4}"
 	ProjectSection(SolutionItems) = preProject
@@ -11,9 +11,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ci.Uploads.Nuget", "Creatidea.Library.Uploads.Nuget\Ci.Uploads.Nuget.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ci.Upload.Nuget", "Ci.Upload.Nuget\Ci.Upload.Nuget.csproj", "{0451BAEF-DF2E-4B98-8644-94EE9415E389}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ci.Uploads.Example", "Creatidea.Library.Example\Ci.Uploads.Example.csproj", "{D1651587-9C09-445C-80F4-3980401B3412}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ci.Upload.Example", "Ci.Upload.Example\Ci.Upload.Example.csproj", "{D1651587-9C09-445C-80F4-3980401B3412}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

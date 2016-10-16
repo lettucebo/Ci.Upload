@@ -7,8 +7,8 @@
     <ProjectGuid>{D1651587-9C09-445C-80F4-3980401B3412}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Ci.Uploads.Example</RootNamespace>
-    <AssemblyName>Ci.Uploads.Example</AssemblyName>
+    <RootNamespace>Ci.Upload.Example</RootNamespace>
+    <AssemblyName>Ci.Upload.Example</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -55,9 +55,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Creatidea.Library.Uploads\Ci.Uploads.csproj">
+    <ProjectReference Include="..\Ci.Upload\Ci.Upload.csproj">
       <Project>{f842a9d0-5b7f-497b-98b8-f0f46d5e147b}</Project>
-      <Name>Ci.Uploads</Name>
+      <Name>Ci.Upload</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
     <metadata>
-        <id>Ci.Uploads</id>
+        <id>Ci.Upload</id>
         <version>2.2.0</version>
-        <title>Ci.Uploads</title>
+        <title>Ci.Upload</title>
         <authors>Money</authors>
         <licenseUrl>http://opensource.org/licenses/Apache-2.0</licenseUrl>
         <projectUrl>https://github.com/creatidea-tw/Creatidea.Library.Uploads</projectUrl>
