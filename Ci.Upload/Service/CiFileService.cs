@@ -5,12 +5,18 @@
     using System.Drawing;
     using System.Drawing.Imaging;
     using System.IO;
+    using System.Threading.Tasks;
     using System.Web;
 
     using Ci.Extensions;
+    using Ci.Uploads.Enums;
     using Ci.Uploads.Models;
 
     using Creatidea.Library.Configs;
+
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Auth;
+    using Microsoft.WindowsAzure.Storage.Blob;
 
     using MimeTypeMap.List;
 
@@ -96,6 +102,8 @@
             return model;
         }
 
+        // todo 將組CIFILE抽出來
+
         /// <summary>
         /// 圖片儲存
         /// </summary>
@@ -148,76 +156,123 @@
             return model;
         }
 
-        /// <summary>
-        /// Determines whether [is null or empty] [the specified file].
-        /// </summary>
-        /// <param name="file">The file.</param>
-        /// <returns><c>true</c> if [is null or empty] [the specified file]; otherwise, <c>false</c>.</returns>
-        private static bool IsNullOrEmpty(HttpPostedFileBase file)
+        protected internal static CiFile SaveAzureStorage(HttpPostedFileBase file, string containerName, string fileName, string connectionString)
         {
-            return (file == null || file.ContentLength <= 0);
-        }
-
-        /// <summary>
-        /// 取得新的檔案名稱
-        /// </summary>
-        /// <returns>System.String.</returns>
-        private static string GetNewFileName()
-        {
-            return Guid.NewGuid().ToString().ToUpper();
-        }
-
-        #region image
-
-        /*
-        /// <summary>
-        /// 圖片儲存
-        /// </summary>
-        /// <param name="image">The image.</param>
-        /// <param name="imageFormat">The image format.</param>
-        /// <param name="folderName">欲存放資料夾名稱</param>
-        /// <returns>CiResult FileUploadViewModel</returns>
-        public CiImageFile SaveAs(Image image, ImageFormat imageFormat, string folderName = "Temps")
-        {
-            if (image == null)
+            if (IsNullOrEmpty(file))
             {
-                throw new NullReferenceException("圖片為空！");
+                throw new ArgumentNullException(nameof(file), "file is null or empty");
             }
 
-            CiImageFile model = new CiImageFile()
+            var ext = Path.GetExtension(file.FileName);
+            if (string.IsNullOrWhiteSpace(fileName))
             {
-                Extension = imageFormat.ToFileExtension(),
-                NewName = GetNewFileName(),
-                Folder = folderName,
-                VirtualPath = Path.Combine(RootPath, folderName),
-                Format = imageFormat
+                fileName = GetNewFileName();
+            }
+
+            var ciFile = new CiFile()
+            {
+                Extension = ext,
+                Folder = containerName,
+                NewName = fileName,
+                OriName = Path.GetFileNameWithoutExtension(file.FileName),
+                StorageType = StorageType.Azure
             };
-            model.FullPath =
-                HttpContext.Current.Server.MapPath(Path.Combine(model.VirtualPath, model.NewName + model.Extension));
 
-            // 若檔名重複則自動重新取得編號
-            while (File.Exists(model.FullPath))
+            // initlize storageaccount by various setting
+            if (string.IsNullOrWhiteSpace(connectionString))
             {
-                model.NewName = GetNewFileName();
-                model.FullPath =
-                    HttpContext.Current.Server.MapPath(Path.Combine(model.VirtualPath, model.NewName + model.Extension));
+                if (CiConfig.Global.CiFile.AzureStorage.ConnectionString != null
+                    && !string.IsNullOrWhiteSpace(CiConfig.Global.CiFile.AzureStorage.ConnectionString.ToString()))
+                {
+                    connectionString = CiConfig.Global.CiFile.AzureStorage.ConnectionString.ToString();
+                }
+                else
+                {
+                    throw new ArgumentNullException(nameof(CiConfig.Global.CiFile.AzureStorage.ConnectionString), "AzureStorage ConnectionString is empty.");
+                }
             }
 
-            // 檢查資料夾是否存在，若不存在則自動建立
-            if (!Directory.Exists(Path.GetDirectoryName(model.FullPath)))
-            {
-                Directory.CreateDirectory(Path.GetDirectoryName(model.FullPath));
-            }
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
 
-            // 存檔
-            image.Save(model.FullPath, imageFormat);
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-            model.VirtualPath = Path.Combine(model.VirtualPath, model.NewName + model.Extension);
+            // Retrieve a reference to a container, container name must be loweer case.
+            CloudBlobContainer container = blobClient.GetContainerReference(containerName);
 
-            return model;
+            // Create the container if it doesn't already exist.
+            container.CreateIfNotExists();
+
+            container.SetPermissions(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Off });
+
+            // Retrieve reference to a blob named "myblob", aka filename.
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(fileName + ext);
+
+            blockBlob.UploadFromStream(file.InputStream);
+
+            ciFile.FullPath = blockBlob.StorageUri.ToString();
+            ciFile.VirtualPath = blockBlob.Uri.ToString();
+
+            return ciFile;
         }
-        */
-        #endregion
+
+        protected internal async static Task<CiFile> SaveAzureStorageAsync(HttpPostedFileBase file, string containerName, string fileName, string connectionString)
+        {
+            if (IsNullOrEmpty(file))
+            {
+                throw new ArgumentNullException(nameof(file), "file is null or empty");
+            }
+
+            var ext = Path.GetExtension(file.FileName);
+            if (string.IsNullOrWhiteSpace(fileName))
+            {
+                fileName = GetNewFileName();
+            }
+
+            var ciFile = new CiFile()
+            {
+                Extension = ext,
+                Folder = containerName,
+                NewName = fileName,
+                OriName = Path.GetFileNameWithoutExtension(file.FileName),
+                StorageType = StorageType.Azure
+            };
+
+            // initlize storageaccount by various setting
+            if (string.IsNullOrWhiteSpace(connectionString))
+            {
+                if (CiConfig.Global.CiFile.AzureStorage.ConnectionString != null
+                    && !string.IsNullOrWhiteSpace(CiConfig.Global.CiFile.AzureStorage.ConnectionString.ToString()))
+                {
+                    connectionString = CiConfig.Global.CiFile.AzureStorage.ConnectionString.ToString();
+                }
+                else
+                {
+                    throw new ArgumentNullException(nameof(CiConfig.Global.CiFile.AzureStorage.ConnectionString), "AzureStorage ConnectionString is empty.");
+                }
+            }
+
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+
+            CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+
+            // Retrieve a reference to a container, container name must be loweer case.
+            CloudBlobContainer container = blobClient.GetContainerReference(containerName);
+
+            container.SetPermissions(new BlobContainerPermissions { PublicAccess = BlobContainerPublicAccessType.Off });
+
+            // Create the container if it doesn't already exist.
+            container.CreateIfNotExists();
+
+            // Retrieve reference to a blob named "myblob", aka filename.
+            CloudBlockBlob blockBlob = container.GetBlockBlobReference(fileName + ext);
+
+            await blockBlob.UploadFromStreamAsync(file.InputStream);
+
+            ciFile.FullPath = blockBlob.StorageUri.ToString();
+            ciFile.VirtualPath = blockBlob.Uri.ToString();
+
+            return ciFile;
+        }
 
         /// <summary>
         /// 檢查檔案副檔名是否符合
@@ -227,7 +282,7 @@
         /// <param name="checkExtensionList">The need to be check extension's list.</param>
         /// <param name="checkMime">if set to <c>true</c> [check MIME].</param>
         /// <returns>bool</returns>
-        public static bool CheckExtension(string extension, string mime, List<string> checkExtensionList, bool checkMime = true)
+        public static bool CheckExtensionWithMime(string extension, string mime, List<string> checkExtensionList, bool checkMime = true)
         {
             if (!checkExtensionList.Contains(extension))
             {
@@ -246,6 +301,25 @@
             }
 
             return true;
+        }
+
+        /// <summary>
+        /// 取得新的檔案名稱
+        /// </summary>
+        /// <returns>System.String.</returns>
+        private static string GetNewFileName()
+        {
+            return Ci.Sequential.Guid.Create().ToString().ToUpper();
+        }
+
+        /// <summary>
+        /// Determines whether [is null or empty] [the specified file].
+        /// </summary>
+        /// <param name="file">The file.</param>
+        /// <returns><c>true</c> if [is null or empty] [the specified file]; otherwise, <c>false</c>.</returns>
+        private static bool IsNullOrEmpty(HttpPostedFileBase file)
+        {
+            return (file == null || file.ContentLength <= 0);
         }
     }
 }

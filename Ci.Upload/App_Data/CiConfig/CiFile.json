@@ -1,6 +1,9 @@
 ﻿{
     "CiFile": {
         "Version": "2.2.0",
-        "RootPath": "~/Uploads/"
+        "RootPath": "~/Uploads/",
+        "AzureStorage": {
+            "ConnectionString": ""
+        }
     }
 }

@@ -10,6 +10,33 @@
             </summary>
             <value>The image.</value>
         </member>
+        <member name="M:Ci.Uploads.Extensions.HttpPostedFileBaseExtensions.SaveAsLocal(System.Web.HttpPostedFileBase,System.String,System.String)">
+            <summary>
+            儲存在本地端
+            </summary>
+            <param name="file"></param>
+            <param name="folder"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ci.Uploads.Extensions.HttpPostedFileBaseExtensions.SaveAsAzureStorage(System.Web.HttpPostedFileBase,System.String,System.String,System.String)">
+            <summary>
+            儲存在 Azure Storage
+            </summary>
+            <param name="file"></param>
+            <param name="container"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Ci.Uploads.Extensions.HttpPostedFileBaseExtensions.SaveAsAzureStorageAsync(System.Web.HttpPostedFileBase,System.String,System.String,System.String)">
+            <summary>
+            儲存在 Azure Storage
+            </summary>
+            <param name="file"></param>
+            <param name="container"></param>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
         <member name="P:Ci.Uploads.Interface.ICiFile.StorageType">
             <summary>
             Gets or sets the type of the storage.
@@ -116,20 +143,7 @@
             <param name="folder">欲存放資料夾名稱</param>
             <returns>CiResult FileUploadViewModel</returns>
         </member>
-        <member name="M:Ci.Uploads.Service.CiFileService.IsNullOrEmpty(System.Web.HttpPostedFileBase)">
-            <summary>
-            Determines whether [is null or empty] [the specified file].
-            </summary>
-            <param name="file">The file.</param>
-            <returns><c>true</c> if [is null or empty] [the specified file]; otherwise, <c>false</c>.</returns>
-        </member>
-        <member name="M:Ci.Uploads.Service.CiFileService.GetNewFileName">
-            <summary>
-            取得新的檔案名稱
-            </summary>
-            <returns>System.String.</returns>
-        </member>
-        <member name="M:Ci.Uploads.Service.CiFileService.CheckExtension(System.String,System.String,System.Collections.Generic.List{System.String},System.Boolean)">
+        <member name="M:Ci.Uploads.Service.CiFileService.CheckExtensionWithMime(System.String,System.String,System.Collections.Generic.List{System.String},System.Boolean)">
             <summary>
             檢查檔案副檔名是否符合
             </summary>
@@ -138,6 +152,19 @@
             <param name="checkExtensionList">The need to be check extension's list.</param>
             <param name="checkMime">if set to <c>true</c> [check MIME].</param>
             <returns>bool</returns>
+        </member>
+        <member name="M:Ci.Uploads.Service.CiFileService.GetNewFileName">
+            <summary>
+            取得新的檔案名稱
+            </summary>
+            <returns>System.String.</returns>
+        </member>
+        <member name="M:Ci.Uploads.Service.CiFileService.IsNullOrEmpty(System.Web.HttpPostedFileBase)">
+            <summary>
+            Determines whether [is null or empty] [the specified file].
+            </summary>
+            <param name="file">The file.</param>
+            <returns><c>true</c> if [is null or empty] [the specified file]; otherwise, <c>false</c>.</returns>
         </member>
     </members>
 </doc>
