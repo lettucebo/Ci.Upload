@@ -1,4 +1,4 @@
-# Creatidea.Library.Uploads
- 創鈺共用類別庫系列
+# Ci.Upload
+Support library for easy save upload file.
  
- [![BuildStatus](https://travis-ci.org/lettucebo/Creatidea.Library.Uploads.png?branch=develope)](https://travis-ci.org/lettucebo/Creatidea.Library.Uploads)
+## Usage
