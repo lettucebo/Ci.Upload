@@ -1,7 +1,7 @@
-﻿namespace Ci.Uploads.Interface
-{
-    using Ci.Uploads.Enums;
+﻿using Ci.Upload.Enums;
 
+namespace Ci.Upload.Interface
+{
     interface ICiFile
     {
         /// <summary>

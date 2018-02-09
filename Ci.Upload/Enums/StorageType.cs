@@ -1,7 +1,7 @@
-﻿namespace Ci.Uploads.Enums
-{
-    using System.ComponentModel;
+﻿using System.ComponentModel;
 
+namespace Ci.Upload.Enums
+{
     public enum StorageType
     {
         [Description("本地端")]

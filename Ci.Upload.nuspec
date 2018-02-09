@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+    <metadata>
+        <id>Ci.Upload</id>
+        <version>3.0.0</version>
+        <title>Ci.Upload</title>
+        <authors>MoneyYu</authors>
+        <owners>MoneyYu</owners>
+        <projectUrl>https://github.com/lettucebo/Ci.Upload</projectUrl>
+        <iconUrl>https://i.imgur.com/3xZ4Cdx.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Support library for easy save upload file.</description>
+        <summary>Support library for easy save upload file.</summary>
+        <tags>upload,httppostfilebase</tags>
+        <dependencies>
+            <group targetFramework=".NETFramework4.5.2">
+                <dependency id="Creatidea.Library.Configs" version="1.0.4" />
+                <dependency id="Ci.Sequential" version="2.0.0" />
+            </group>
+        </dependencies>
+    </metadata>
+    <files />
+</package>

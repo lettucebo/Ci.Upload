@@ -1,8 +1,8 @@
-﻿namespace Ci.Uploads.Models
-{
-    using Ci.Uploads.Enums;
-    using Ci.Uploads.Interface;
+﻿using Ci.Upload.Enums;
+using Ci.Upload.Interface;
 
+namespace Ci.Upload.Models
+{
     public class CiFile : ICiFile
     {
         /// <summary>
